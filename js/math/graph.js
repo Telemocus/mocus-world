@@ -7,7 +7,19 @@ class Graph {
   }
 
   addPoint(point){
-      this.points.push(point);
+      this.points.push(point); //push point into an array.
+  }
+
+  containsPoint(point){
+    return this.points.find((p) => p.equals(point));  //find will loop through all the points to find if p = to point
+  }
+
+  tryAddPoint(point){
+    if (!this.containsPoint(point)){
+      this.addPoint(point);
+
+      return true;
+    }
   }
   draw(ctx) {
     for (const seg of this.segments) {

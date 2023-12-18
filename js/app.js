@@ -15,13 +15,14 @@ const s4 = new Segment(p2, p3);
 const graph = new Graph([p1, p2, p3, p4], [s1, s2, s3, s4]);
 
 function addRandomPoint() {
-  graph.addPoint(
-    new Point(Math.random( ) * myCanvas.width, Math.random() * myCanvas.height)
+  const success =  graph.tryAddPoint(
+    new Point(Math.random( ) * myCanvas.width, Math.random() * myCanvas.height) //adds random points
   );
 
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas back to 0 0. Both the width and height
-  graph.draw(ctx); // We tell the graph to start drawing again.
+  graph.draw(ctx); // We tell the graph to start drawing itself again.
+
+console.log(success);
 };
 
-addRandomPoint();
-graph.draw(ctx);
+  graph.draw(ctx);
